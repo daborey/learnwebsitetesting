@@ -3,21 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product List</title>
+    <title>Currency Converter</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>My Product Store</h1>
-    </header>
+    <div class="container">
+        <h1>Currency Converter</h1>
 
-    <div id="product-container">
-        <!-- Products will be inserted dynamically here -->
+        <!-- Marquee showing current exchange rates -->
+        <marquee class="exchange-rate">
+            <span>1 USD = 4100 KHR (Cambodian Riel) | 1 CNY = 0.14 USD | 1 THB = 0.028 USD</span>
+        </marquee>
+
+        <div class="converter">
+            <h2>USD to Khmer Riel</h2>
+            <input type="number" id="usdInput" placeholder="Enter USD">
+            <button onclick="convertUsdToRiel()">Convert</button>
+            <p id="usdToRielResult"></p>
+        </div>
+
+        <div class="converter">
+            <h2>Yuan (Chinese) to USD</h2>
+            <input type="number" id="yuanInput" placeholder="Enter Yuan">
+            <button onclick="convertYuanToUsd()">Convert</button>
+            <p id="yuanToUsdResult"></p>
+        </div>
+
+        <div class="converter">
+            <h2>Baht (Thai) to USD</h2>
+            <input type="number" id="bahtInput" placeholder="Enter Baht">
+            <button onclick="convertBahtToUsd()">Convert</button>
+            <p id="bahtToUsdResult"></p>
+        </div>
     </div>
-
-    <footer>
-        <p>© 2024 My Product Store</p>
-    </footer>
 
     <script src="script.js"></script>
 </body>

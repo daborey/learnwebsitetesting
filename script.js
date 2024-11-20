@@ -1,52 +1,37 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // The API URL
-    const apiUrl = 'https://fakestoreapi.com/products'; // A mock API for testing
+// Conversion Rates
+const usdToRielRate = 4100; // 1 USD = 4100 Riel
+const yuanToUsdRate = 0.14; // 1 Yuan = 0.14 USD (as an example)
+const bahtToUsdRate = 0.028; // 1 Baht = 0.028 USD (as an example)
 
-    // Function to fetch products
-    function loadProducts() {
-        fetch(apiUrl)
-            .then(response => response.json())
-            .then(data => {
-                displayProducts(data);  // Call function to display products
-            })
-            .catch(error => {
-                console.error('Error loading products:', error);
-            });
+// Function to Convert USD to Khmer Riel
+function convertUsdToRiel() {
+    const usdValue = document.getElementById("usdInput").value;
+    if (usdValue === '') {
+        alert('Please enter a value to convert.');
+        return;
     }
+    const rielValue = usdValue * usdToRielRate;
+    document.getElementById("usdToRielResult").innerText = `${usdValue} USD = ${rielValue} KHR (Riel)`;
+}
 
-    // Function to display products in the grid
-    function displayProducts(products) {
-        const productContainer = document.getElementById('product-container');
-        
-        // Loop through products and create HTML for each
-        const productRows = [];
-        let row = '';
-        products.forEach((product, index) => {
-            // Start new row every 3 products
-            if (index % 3 === 0 && index > 0) {
-                productRows.push(`<div class="product-row">${row}</div>`);
-                row = '';
-            }
-
-            row += `
-                <div class="product">
-                    <img src="${product.image}" alt="${product.title}">
-                    <div class="product-info">
-                        <h3>${product.title}</h3>
-                        <p>${product.description}</p>
-                        <div class="price">$${product.price}</div>
-                    </div>
-                </div>
-            `;
-        });
-        
-        // Push the last row
-        productRows.push(`<div class="product-row">${row}</div>`);
-        
-        // Append all rows to the product container
-        productContainer.innerHTML = productRows.join('');
+// Function to Convert Yuan (Chinese) to USD
+function convertYuanToUsd() {
+    const yuanValue = document.getElementById("yuanInput").value;
+    if (yuanValue === '') {
+        alert('Please enter a value to convert.');
+        return;
     }
+    const usdValue = yuanValue * yuanToUsdRate;
+    document.getElementById("yuanToUsdResult").innerText = `${yuanValue} CNY = ${usdValue} USD`;
+}
 
-    // Call the loadProducts function when the page is ready
-    loadProducts();
-});
+// Function to Convert Baht (Thai) to USD
+function convertBahtToUsd() {
+    const bahtValue = document.getElementById("bahtInput").value;
+    if (bahtValue === '') {
+        alert('Please enter a value to convert.');
+        return;
+    }
+    const usdValue = bahtValue * bahtToUsdRate;
+    document.getElementById("bahtToUsdResult").innerText = `${bahtValue} THB = ${usdValue} USD`;
+}
