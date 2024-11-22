@@ -1,37 +1,56 @@
-// Conversion Rates
-const usdToRielRate = 4100; // 1 USD = 4100 Riel
-const yuanToUsdRate = 0.14; // 1 Yuan = 0.14 USD (as an example)
-const bahtToUsdRate = 0.028; // 1 Baht = 0.028 USD (as an example)
-
-// Function to Convert USD to Khmer Riel
-function convertUsdToRiel() {
-    const usdValue = document.getElementById("usdInput").value;
-    if (usdValue === '') {
-        alert('Please enter a value to convert.');
-        return;
+// Car data
+const cars = [
+    { name: "Car 1", price: "$80,000" },
+    { name: "Car 2", price: "$85,000" },
+    { name: "Car 3", price: "$90,000" },
+    { name: "Car 4", price: "$95,000" },
+    { name: "Car 5", price: "$100,000" },
+    { name: "Car 6", price: "$110,000" },
+    { name: "Car 7", price: "$120,000" },
+    { name: "Car 8", price: "$130,000" },
+    { name: "Car 9", price: "$140,000" },
+    { name: "Car 10", price: "$150,000" },
+  ];
+  
+  // Add cars dynamically to the page
+  const carList = document.getElementById("car-list");
+  
+  cars.forEach((car) => {
+    // Create car card
+    const card = document.createElement("div");
+    card.className = "car-card";
+  
+    card.innerHTML = `
+      <img src="images/square.jpg" alt="${car.name}" class="car-image">
+      <div class="info">
+        <h2>${car.name}</h2>
+        <p class="price">${car.price}</p>
+      </div>
+    `;
+  
+    carList.appendChild(card);
+  });
+  
+  // Modal functionality
+  const modal = document.getElementById("image-modal");
+  const modalImg = document.getElementById("modal-img");
+  const closeBtn = document.querySelector(".close");
+  
+  document.addEventListener("click", (e) => {
+    if (e.target.classList.contains("car-image")) {
+      modal.style.display = "block";
+      modalImg.src = e.target.src; // Set modal image source
+      modalImg.alt = e.target.alt; // Set modal image alt
     }
-    const rielValue = usdValue * usdToRielRate;
-    document.getElementById("usdToRielResult").innerText = `${usdValue} USD = ${rielValue} KHR (Riel)`;
-}
-
-// Function to Convert Yuan (Chinese) to USD
-function convertYuanToUsd() {
-    const yuanValue = document.getElementById("yuanInput").value;
-    if (yuanValue === '') {
-        alert('Please enter a value to convert.');
-        return;
+  });
+  
+  closeBtn.addEventListener("click", () => {
+    modal.style.display = "none";
+  });
+  
+  window.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modal.style.display = "none";
     }
-    const usdValue = yuanValue * yuanToUsdRate;
-    document.getElementById("yuanToUsdResult").innerText = `${yuanValue} CNY = ${usdValue} USD`;
-}
-
-// Function to Convert Baht (Thai) to USD
-function convertBahtToUsd() {
-    const bahtValue = document.getElementById("bahtInput").value;
-    if (bahtValue === '') {
-        alert('Please enter a value to convert.');
-        return;
-    }
-    const usdValue = bahtValue * bahtToUsdRate;
-    document.getElementById("bahtToUsdResult").innerText = `${bahtValue} THB = ${usdValue} USD`;
-}
+  });
+  
