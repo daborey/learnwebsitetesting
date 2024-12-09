@@ -3,18 +3,82 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Save Form as Text</title>
+  <title>English Learning Checklist</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    li {
+      margin: 10px 0;
+      background: #fff;
+      padding: 10px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+    }
+    input[type="checkbox"] {
+      margin-right: 15px;
+      transform: scale(1.2);
+    }
+  </style>
 </head>
 <body>
-  <form id="myForm">
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" required>
-    <br>
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required>
-    <br>
-    <button type="button" id="saveButton">Save as Text</button>
-  </form>
-  <script src="script.js"></script>
+  <h1>Beginner English Learning Checklist</h1>
+  <ul>
+    <li>
+      <input type="checkbox" id="alphabet">
+      <label for="alphabet">Learn the English alphabet</label>
+    </li>
+    <li>
+      <input type="checkbox" id="basic-phrases">
+      <label for="basic-phrases">Memorize 10 common phrases (e.g., Hello, How are you?)</label>
+    </li>
+    <li>
+      <input type="checkbox" id="numbers">
+      <label for="numbers">Learn to count from 1 to 20</label>
+    </li>
+    <li>
+      <input type="checkbox" id="days-months">
+      <label for="days-months">Learn the days of the week and months of the year</label>
+    </li>
+    <li>
+      <input type="checkbox" id="colors">
+      <label for="colors">Learn the names of basic colors</label>
+    </li>
+    <li>
+      <input type="checkbox" id="basic-vocabulary">
+      <label for="basic-vocabulary">Learn 20 common vocabulary words (e.g., apple, book, car)</label>
+    </li>
+    <li>
+      <input type="checkbox" id="simple-grammar">
+      <label for="simple-grammar">Understand basic grammar rules (e.g., subject-verb-object)</label>
+    </li>
+    <li>
+      <input type="checkbox" id="listening">
+      <label for="listening">Practice listening to simple English conversations</label>
+    </li>
+    <li>
+      <input type="checkbox" id="speaking">
+      <label for="speaking">Practice introducing yourself in English</label>
+    </li>
+    <li>
+      <input type="checkbox" id="reading">
+      <label for="reading">Read one short story in English</label>
+    </li>
+  </ul>
 </body>
 </html>
